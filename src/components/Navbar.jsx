@@ -6,9 +6,8 @@ import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
 
-export default function Navbar() {
+export default function Navbar({ onToggleSidebar }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
-  const [hideSidebar, setHideSidebar] = useState(false);
 
   const handleLoginClick = () => {
     setIsLoggedIn((prev) => !prev); // Toggle login state
@@ -23,6 +22,7 @@ export default function Navbar() {
           color="inherit"
           aria-label="menu"
           sx={{ mr: 2 }}
+          onClick={onToggleSidebar(true)}
         >
           <MenuIcon />
         </IconButton>
